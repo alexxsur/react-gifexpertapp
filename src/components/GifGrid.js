@@ -1,7 +1,11 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import PropTypes from 'prop-types';
 
 export const GifGrid = ({category}) => {
+
+    useEffect(()=>{
+        getGif();
+    },[]);
 
     const getGif = async() => {
         const url = 'https://api.giphy.com/v1/gifs/search?limit=10&q=homero&api_key=gyIiSo12lWr226ySyAgSmhQgep5CIJRn';
@@ -18,8 +22,6 @@ export const GifGrid = ({category}) => {
 
         console.log(gifs);
     }
-
-    getGif();
 
     return (
             <div>
