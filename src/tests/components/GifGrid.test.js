@@ -27,7 +27,7 @@ describe('Pruebas en <GifGrid />', () => {
         }]
 
         useFetchGifs.mockReturnValue({
-            data: [gifs],
+            data: gifs,
             loading: false
         })
 
