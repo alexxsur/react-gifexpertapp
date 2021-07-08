@@ -8,33 +8,10 @@ exports[`Pruebas en <GifGrid /> debe de mostrar el componente correctamente 1`] 
   <p
     className="card animate__animated animate__flash"
   >
-    Cargando...
+    Loading
   </p>
   <div
     className="card-grid"
   />
-</Fragment>
-`;
-
-exports[`Pruebas en <GifGrid /> debe de mostrar items cuando se cargan imágenes useFetchGifs 1`] = `
-<Fragment>
-  <h3>
-    Homero
-  </h3>
-  <p
-    className="card animate__animated animate__flash"
-  >
-    Carga completa
-  </p>
-  <div
-    className="card-grid"
-  >
-    <GifGridItem
-      id="ABC"
-      key="ABC"
-      title="CUalquier cosa"
-      url="https://localhost/cualquier/cosa.jpg"
-    />
-  </div>
 </Fragment>
 `;

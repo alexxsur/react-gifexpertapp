@@ -1,4 +1,6 @@
 import React from 'react';
+import '@testing-library/jest-dom';
+
 import {shallow} from 'enzyme';
 import {GifGrid} from '../../components/GifGrid';
 import { useFetchGifs } from '../../hooks/useFetchGifs';
@@ -16,7 +18,7 @@ describe('Pruebas en <GifGrid />', () => {
         })
         const wrapper = shallow(<GifGrid category={category} />);
         expect( wrapper ).toMatchSnapshot();
-    })
+    });
 
     test('debe de mostrar items cuando se cargan imágenes useFetchGifs', () => {
 
@@ -24,15 +26,22 @@ describe('Pruebas en <GifGrid />', () => {
             id: 'ABC',
             url: 'https://localhost/cualquier/cosa.jpg',
             title: 'CUalquier cosa'
-        }]
+        },
+        {
+            id: '123',
+            url: 'https://localhost/cualquier/cosa.jpg',
+            title: 'CUalquier cosa'
+        }];
 
         useFetchGifs.mockReturnValue({
             data: gifs,
             loading: false
-        })
+        });
 
         const wrapper = shallow(<GifGrid category={category} />);
-        expect( wrapper ).toMatchSnapshot();
+        
+        expect( wrapper.find('p').exists() ).toBe(false);
+        expect( wrapper.find('GifGridItem').length ).toBe(gifs.length);
     })
 })
 
